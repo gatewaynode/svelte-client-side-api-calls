@@ -1,0 +1,32 @@
+profiles:
+  local:
+    data:
+      host: http://localhost
+      svelte_port: 5173
+      fastapi_port: 8000
+      pocketbase_port: 8090
+  remote:
+    data:
+      host: http://192.168.1.26
+      svelte_port: 5173
+      fastapi_port: 8000
+      pocketbase_port: 8090
+
+
+requests:
+  svelte_up: !request
+    method: GET
+    url: "{{host}}:{{svelte_port}}/"
+  pocketbase_up: !request
+    method: GET
+    url: "{{host}}:{{pocketbase_port}}/api/collections/users/records"
+  fast_api_default: !request
+    method: GET
+    url: "{{host}}:{{fastapi_port}}/"
+
+  fast_api_post_default: !request
+    method: POST
+    url: "{{host}}:{{fastapi_port}}/"
+    body: >
+      {"name": "fish", "description": "", "plu": 0}
+

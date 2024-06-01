@@ -20,7 +20,7 @@ export async function get_stuff(
  * A simple post request API for the FastAPI server
  * 
  * These parameters are positionally driven, so in order to pass a generic body 
- * in the function call, it must be the first parameter
+ * in the function call in JSX, it must be the first parameter
  * 
  * @param {string} target - The target URL
  * @param {string} path - The path to the API endpoint
