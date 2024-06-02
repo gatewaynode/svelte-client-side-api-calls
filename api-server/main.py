@@ -12,9 +12,20 @@ class Item(BaseModel):
 app = FastAPI()
 
 origins = [
+    "http://localhost",
     "http://localhost:5173",
-    "http://192.168.1.7:5173",
-    "192.168.1.7:5173",
+    "http://192.168.1.2",
+    "http://192.168.1.2:5173",
+    "192.168.1.2",
+    "192.168.1.3",
+    "192.168.1.4",
+    "192.168.1.5",
+    "192.168.1.6",
+    "192.168.1.7",
+    "192.168.1.8",
+    "192.168.1.9",
+    "192.168.1.10",
+    "192.168.1.11",
 ]
 
 app.add_middleware(
@@ -79,7 +90,7 @@ async def create_item(item: Item):
                 "rating": 2,
                 "col": "blue",
                 "dob": "14/05/1982",
-                "car": True,
+                "car": "true",
             },
             {
                 "id": 3,
@@ -89,7 +100,7 @@ async def create_item(item: Item):
                 "rating": 0,
                 "col": "green",
                 "dob": "22/05/1982",
-                "car": True,
+                "car": "true",
             },
             {
                 "id": 4,
