@@ -13,6 +13,7 @@
     onMount(() => {
         let path, body, target;
         let tabledata = fetch_table(post_body).then((data) => {
+            console.log(data);
             var table = new Tabulator("#demo-table", {
                 data: data.rows,
                 layout: "fitColumns",
@@ -22,16 +23,8 @@
     });
 </script>
 
-<h1>API Call Component Testing</h1>
-<div class="something">
-    {#await post_stuff(post_body)}
-        ...await...
-    {:then payload}
-        {payload.name}
-        {payload.description}
-        {payload.plu}
-    {/await}
-</div>
+<h2>API Call Complex Data plus Tabulator</h2>
+<h3 class="label">POST</h3>
 <div id="demo-table"></div>
 
 <style>
@@ -39,5 +32,8 @@
         border: 1px solid rgb(134, 54, 54);
         padding: 1em;
         margin: 1em;
+    }
+    .label {
+        color: rgb(117, 108, 198);
     }
 </style>

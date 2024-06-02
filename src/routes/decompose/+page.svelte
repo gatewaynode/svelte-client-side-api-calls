@@ -14,7 +14,7 @@
     {#await get_stuff()}
         ...await...
     {:then payload}
-        <h2>GET</h2>
+        <h3 class="label">GET</h3>
         {payload.message}
     {/await}
 </div>
@@ -22,10 +22,10 @@
     {#await post_stuff(post_body)}
         ...await...
     {:then payload}
-        <h2>POST</h2>
-        {payload.name}
-        {payload.description}
-        {payload.plu}
+        <h3 class="label">POST</h3>
+        <div>{payload.name}</div>
+        <div>{payload.description}</div>
+        <div>{payload.plu}</div>
     {/await}
 </div>
 
@@ -34,5 +34,8 @@
         border: 1px solid rgb(134, 54, 54);
         padding: 1em;
         margin: 1em;
+    }
+    .label {
+        color: rgb(117, 108, 198);
     }
 </style>
