@@ -1,3 +1,18 @@
+# Why Client Side Calls are abit tricky in a SvelteKit SPA
+
+The SvelteKit loading functions are great, but seem to expect to be launching from a JS runtime stack.  Most of the examples and demos I found online where pretty sparse if not outright wrong, this is more or less working for me against a FastAPI implementation I stood up on another box (the 192.168.1.99 LAN address).
+
+I'll see if I can get +page.js/+page.ts working and document here 
+
+If you have python and poetry installed the server can be setup with:
+
+```bash
+cd api-server
+poetry install
+poetry shell
+fastapi run
+```
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).

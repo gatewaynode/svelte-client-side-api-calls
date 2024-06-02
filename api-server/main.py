@@ -8,6 +8,7 @@ class Item(BaseModel):
     description: str | None = None
     plu: int
 
+
 app = FastAPI()
 
 origins = [
@@ -24,17 +25,100 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.get("/")
 async def root():
-    return {
-        "message": "The duck flew over the pond at midnight."
-    }
+    return {"message": "The duck flew over the pond at midnight."}
+
 
 @app.post("/")
 async def root(item: Item):
     item_dict = item.dict()
     if item.name == "fish":
-        item_dict.update({ "name": "halibut" })
-        item_dict.update({ "description": "A fish that lives in the water" })
-        item_dict.update({ "plu":  123 })
+        item_dict.update({"name": "halibut"})
+        item_dict.update({"description": "A fish that lives in the water"})
+        item_dict.update({"plu": 123})
     return item_dict
+
+
+@app.post("/items/")
+async def create_item(item: Item):
+    table = {
+        "columns": [
+            {"title": "Name", "field": "name", "width": 150},
+            {
+                "title": "Age",
+                "field": "age",
+                "hozAlign": "left",
+                "formatter": "progress",
+            },
+            {"title": "Favourite Color", "field": "col"},
+            {
+                "title": "Date Of Birth",
+                "field": "dob",
+                "sorter": "date",
+                "hozAlign": "center",
+            },
+        ],
+        "rows": [
+            {
+                "id": 1,
+                "name": "Oli Bob",
+                "progress": 12,
+                "gender": "male",
+                "rating": 1,
+                "col": "red",
+                "dob": "19/02/1984",
+                "car": 1,
+            },
+            {
+                "id": 2,
+                "name": "Mary May",
+                "progress": 1,
+                "gender": "female",
+                "rating": 2,
+                "col": "blue",
+                "dob": "14/05/1982",
+                "car": True,
+            },
+            {
+                "id": 3,
+                "name": "Christine Lobowski",
+                "progress": 42,
+                "gender": "female",
+                "rating": 0,
+                "col": "green",
+                "dob": "22/05/1982",
+                "car": True,
+            },
+            {
+                "id": 4,
+                "name": "Brendon Philips",
+                "progress": 100,
+                "gender": "male",
+                "rating": 1,
+                "col": "orange",
+                "dob": "01/08/1980",
+            },
+            {
+                "id": 5,
+                "name": "Margret Marmajuke",
+                "progress": 16,
+                "gender": "female",
+                "rating": 5,
+                "col": "yellow",
+                "dob": "31/01/1999",
+            },
+            {
+                "id": 6,
+                "name": "Frank Harbours",
+                "progress": 38,
+                "gender": "male",
+                "rating": 4,
+                "col": "red",
+                "dob": "12/05/1966",
+                "car": 1,
+            },
+        ],
+    }
+    return table

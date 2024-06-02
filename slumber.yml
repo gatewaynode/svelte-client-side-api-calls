@@ -7,7 +7,7 @@ profiles:
       pocketbase_port: 8090
   remote:
     data:
-      host: http://192.168.1.26
+      host: http://192.168.1.99
       svelte_port: 5173
       fastapi_port: 8000
       pocketbase_port: 8090
@@ -30,3 +30,8 @@ requests:
     body: >
       {"name": "fish", "description": "", "plu": 0}
 
+  fast_api_post_table: !request
+    method: POST
+    url: "{{host}}:{{fastapi_port}}/items/"
+    body: >
+      {"name": "fish", "description": "", "plu": 0}
