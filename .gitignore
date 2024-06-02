@@ -8,3 +8,29 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# FastAPI sub-project
+
+api-server/poetry.lock
+# Source for the following rules: https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore
+# Byte-compiled / optimized / DLL files
+api-server/__pycache__/
+
+# Distribution / packaging
+api-server/.Python
+api-server/build/
+api-server/develop-eggs/
+api-server/dist/
+api-server/downloads/
+api-server/api-server/eggs/
+.eggs/
+api-server/lib/
+api-server/lib64/
+api-server/parts/
+api-server/sdist/
+api-server/var/
+api-server/wheels/
+api-server/*.egg-info/
+api-server/.installed.cfg
+api-server/*.egg
+api-server/MANIFEST
