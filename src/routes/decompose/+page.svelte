@@ -14,6 +14,7 @@
     {#await get_stuff()}
         ...await...
     {:then payload}
+        <h2>GET</h2>
         {payload.message}
     {/await}
 </div>
@@ -21,6 +22,7 @@
     {#await post_stuff(post_body)}
         ...await...
     {:then payload}
+        <h2>POST</h2>
         {payload.name}
         {payload.description}
         {payload.plu}
