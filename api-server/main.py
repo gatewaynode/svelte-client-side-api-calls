@@ -90,7 +90,7 @@ async def create_item(item: Item):
                 "rating": 2,
                 "col": "blue",
                 "dob": "14/05/1982",
-                "car": "true",
+                "car": True,
             },
             {
                 "id": 3,
@@ -100,7 +100,7 @@ async def create_item(item: Item):
                 "rating": 0,
                 "col": "green",
                 "dob": "22/05/1982",
-                "car": "true",
+                "car": True,
             },
             {
                 "id": 4,

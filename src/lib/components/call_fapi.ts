@@ -61,3 +61,38 @@ export async function post_stuff(
     return payload;
 }
 
+/**
+ * Just for the table
+ * 
+ * These parameters are positionally driven, so in order to pass a generic body 
+ * in the function call in JSX, it must be the first parameter.
+ * Parameters are can be overriden by declaring a empty param and then supplying it like so:
+ * 
+ * ```typescript
+ * const target;
+ * const path;
+ * const params;
+ * get_stuff(target="https://www.google.com", path="/maps", params="?q=1234");
+ * ```
+ * 
+ * @param {string} target - The target URL
+ * @param {string} path - The path to the API endpoint
+ * @param {string} body - The body of the request
+ * @returns {PromiseLike<{columns: List<T>, rows: List<T>}>} - The response from the server
+ * @type {PromiseLike<{columns: List<T>, rows: List<T>}>}
+ */
+export async function fetch_table(
+    body = "",
+    target = "http://192.168.1.99:8000",
+    path = "/items/",
+): Promise<{ name: string, description: string, plu: number }> {
+    const response = await fetch(target + path, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: body
+    });
+    const payload = await response.json();
+    return payload;
+}
